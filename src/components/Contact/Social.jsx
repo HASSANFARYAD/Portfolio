@@ -1,10 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import {
-  AiFillGithub,
-  AiOutlineTwitter,
-  AiFillInstagram,
-} from "react-icons/ai";
+import { AiFillGithub } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
 import "./Social.css";
 
@@ -30,17 +26,6 @@ const Social = () => {
                 aria-label="githun"
               >
                 <AiFillGithub />
-              </a>
-            </li>
-            <li className="contact-icons">
-              <a
-                href="https://twitter.com/faisalraj596"
-                target="_blank"
-                rel="noreferrer"
-                className="icon-colour home-social-icons"
-                aria-label="twitter"
-              >
-                <AiOutlineTwitter />
               </a>
             </li>
             <li className="contact-icons">

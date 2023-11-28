@@ -15,34 +15,34 @@ const Techstack = () => {
   return (
     <Row style={{ justifyContent: "center", paddingBottom: "50px" }}>
       <Col xs={4} md={2} className="tech-icons">
-        <SiHtml5 />
+        <SiHtml5 title="HTML5" />
       </Col>
       <Col xs={4} md={2} className="tech-icons">
-        <DiJavascript1 />
+        <DiJavascript1 title="Javascript" />
       </Col>
       <Col xs={4} md={2} className="tech-icons">
-        <SiJquery />
+        <SiJquery title="Jquery" />
       </Col>
       <Col xs={4} md={2} className="tech-icons">
-        <DiReact />
+        <DiReact title="ReactJS" />
       </Col>
       <Col xs={4} md={2} className="tech-icons">
-        <SiRedux />
+        <SiRedux title="Redux-toolkit" />
       </Col>
       <Col xs={4} md={2} className="tech-icons">
-        <SiMongodb />
+        <SiMongodb title="MongoDB" />
       </Col>
       <Col xs={4} md={2} className="tech-icons">
-        <SiCsharp />
+        <SiCsharp title="C#" />
       </Col>
       <Col xs={4} md={2} className="tech-icons">
-        <SiPython />
+        <SiPython title="python" />
       </Col>
       <Col xs={4} md={2} className="tech-icons">
-        <SiMicrosoftsqlserver />
+        <SiMicrosoftsqlserver title="MSSQL" />
       </Col>
       <Col xs={4} md={2} className="tech-icons">
-        <DiGit />
+        <DiGit title="GIT" />
       </Col>
     </Row>
   );
