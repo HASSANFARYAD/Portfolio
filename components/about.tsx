@@ -23,7 +23,7 @@ export default function About() {
         <span className="font-medium">Software Engineering</span>, I decided to pursue my
         passion for programming. My core stack is{" "}
         <span className="font-medium">
-          React, Next.js, .Net
+          React.js, .Net
         </span>
         . My expertise lies in building dynamic and responsive web applications that offer seamless user experiences.{" "}
         I am passionate about leveraging modern technologies to deliver efficient and scalable solutions.
