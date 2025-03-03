@@ -64,16 +64,24 @@ export const projectsData = [
   {
     title: "Zuptu",
     description:
-      "I worked as a full-stack developer on this startup project for 2 years. "+
+      "I worked as a full-stack developer on this startup project for 2 years. " +
       "Zuptu is a powerful and simple-to-use project management tool designed to improve project coordination.",
     tags: ["MsSQL", "Bootstrap", ".Net Core"],
     imageUrl: corpcommentImg,
   },
   {
-    title: "IT Valet",
+    title: "Tech Valet",
     description:
-      "Main goal in creating IT VALET was to revolutionize the industry for IT freelancing by creating a comprehensive platform that links clients with highly qualified IT specialists.",
-    tags: ["React", "Tailwind", "Redux", ".Net Core", "Paypal", "Stripe"],
+      "Main goal in creating Tech-VALET was to revolutionize the industry for IT freelancing by creating a comprehensive platform that links old age clients with highly qualified IT specialists.",
+    tags: [
+      "React",
+      "Bootstrap",
+      "Redux-ToolKit",
+      ".Net Core",
+      "Paypal",
+      "Stripe",
+      "SignalR",
+    ],
     imageUrl: rmtdevImg,
   },
   {
@@ -90,10 +98,10 @@ export const skillsData = [
   "CSS",
   "JavaScript",
   "React",
-  "Next.js",
+  "Node",
   ".Net",
   "Git",
-  "Tailwind",
+  "Tailwind/Bootstrap",
   "MSSQL",
   "MongoDB",
   "Redux",
