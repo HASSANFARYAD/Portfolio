@@ -72,7 +72,7 @@ export const projectsData = [
   {
     title: "Tech Valet",
     description:
-      "Main goal in creating Tech-VALET was to revolutionize the industry for IT freelancing by creating a comprehensive platform that links old age clients with highly qualified IT specialists.",
+      "Tech VALET is platform that links old age clients with highly qualified IT specialists.",
     tags: [
       "React",
       "Bootstrap",
@@ -85,9 +85,9 @@ export const projectsData = [
     imageUrl: rmtdevImg,
   },
   {
-    title: "HR Management System",
+    title: "HRM System",
     description:
-      "Developed a comprehensive HR management system within 1 year, streamlining employee data management and improving HR processes.",
+      "HR management system, streamlining employee data management and improving HR processes.",
     tags: ["React", "SQL", "Tailwind", "Framer", ".Net", "Signal-R"],
     imageUrl: wordanalyticsImg,
   },
