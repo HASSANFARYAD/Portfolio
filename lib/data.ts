@@ -2,9 +2,11 @@ import React from "react";
 import { CgWorkAlt } from "react-icons/cg";
 import { FaReact } from "react-icons/fa";
 import { LuGraduationCap } from "react-icons/lu";
-import corpcommentImg from "@/public/zuptu.png";
 import rmtdevImg from "@/public/it-valet.png";
 import wordanalyticsImg from "@/public/react-hrm.png";
+import letsConnect from "@/public/lets-connect.jpg";
+import designShirt from "@/public/design-your-outfit.jpg";
+import ecommerce from "@/public/ecommerce.png";
 
 export const links = [
   {
@@ -36,39 +38,31 @@ export const links = [
 export const experiencesData = [
   {
     title: "Full Stack Developer",
-    location: "Lahore, PK",
+    location: "Nodlays",
     description:
-      "As a Full Stack Developer, I design and implement dynamic web applications, leveraging React and .NET technologies for both frontend and backend development.",
+      "As a Full Stack Developer, I design and implement dynamic web applications, leveraging React, Next.js, Node.js, AI, and .NET technologies for both frontend and backend development.",
     icon: React.createElement(LuGraduationCap),
-    date: "2019 - present",
+    date: "Jul 2019 - Apr 2025",
   },
   {
     title: "Junior Web Developer",
-    location: "Lahore, PK",
+    location: "TechLogs",
     description:
       "Worked as a Junior Web Developer, utilizing SQL queries to retrieve, manipulate, and analyze data within React and .NET applications over the span of 1 years.",
     icon: React.createElement(CgWorkAlt),
-    date: "2017 - 2018",
+    date: "Feb 2018 - Jan 2019",
   },
   {
     title: "Developer (Intern)",
-    location: "Lahore, PK",
+    location: "Experts Batch",
     description:
       "Completed an internship where I created user interfaces using modern web technologies such as JavaScript frameworks, HTML5, and CSS3.",
     icon: React.createElement(FaReact),
-    date: "2017",
+    date: "May 2017 - Dec 2017",
   },
 ] as const;
 
 export const projectsData = [
-  {
-    title: "Zuptu",
-    description:
-      "I worked as a full-stack developer on this startup project for 2 years. " +
-      "Zuptu is a powerful and simple-to-use project management tool designed to improve project coordination.",
-    tags: ["MsSQL", "Bootstrap", ".Net Core"],
-    imageUrl: corpcommentImg,
-  },
   {
     title: "Tech Valet",
     description:
@@ -91,26 +85,54 @@ export const projectsData = [
     tags: ["React", "SQL", "Tailwind", "Framer", ".Net", "Signal-R"],
     imageUrl: wordanalyticsImg,
   },
+  {
+    title: "Lets Connect",
+    description:
+      "It was an app to where the user can connect with outside world talk, to find service and so on",
+    tags: ["React", "MongoDB", "Bootstrap", "Framer", "Node", "Web Socket"],
+    imageUrl: letsConnect,
+  },
+  {
+    title: "E-Commerce Store",
+    description: "the shopping web application built using Next.Js and Node.js",
+    tags: [
+      "NextJs",
+      "Mongoose",
+      "Tailwind",
+      "Framer Motion",
+      "NodeJs",
+      "NodeMailer",
+    ],
+    imageUrl: ecommerce,
+  },
+  {
+    title: "Design your Shirt",
+    description:
+      "The app allows the user to select the randome color for the shirt and the add the logo or can full image on the shirt",
+    tags: ["React", "Tailwind", "Framer"],
+    imageUrl: designShirt,
+  },
 ] as const;
 
 export const skillsData = [
   "HTML",
   "CSS",
   "JavaScript",
-  "React",
+  "ReactJs",
+  "Framer Motion",
+  "NextJs",
   "Node",
+  "Express",
   ".Net",
   "Git",
   "Tailwind/Bootstrap",
+  "Redux",
+  "Redux-Toolkit",
   "MSSQL",
   "MongoDB",
-  "Redux",
   "CosmosDB",
-  "Express",
   "PostgreSQL",
-  "Redux-Toolkit",
   "GitLab",
-  "Framer Motion",
   "Asana",
   "SourceTree",
 ] as const;
