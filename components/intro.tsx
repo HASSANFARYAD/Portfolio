@@ -9,6 +9,7 @@ import { HiDownload } from "react-icons/hi";
 import { FaGithubSquare } from "react-icons/fa";
 import { useSectionInView } from "@/lib/hooks";
 import { useActiveSectionContext } from "@/context/active-section-context";
+import { openToWork } from "@/lib/data";
 import myImage from "@/public/me.png";
 
 export default function Intro() {
@@ -33,7 +34,7 @@ export default function Intro() {
           >
             <Image
               src={myImage}
-              alt="Has San's portrait"
+              alt="Hassan Faryad portrait"
               width="192"
               height="192"
               quality="95"
@@ -53,20 +54,37 @@ export default function Intro() {
               duration: 0.7,
             }}
           >
-            👋
+            {openToWork.emoji}
           </motion.span>
         </div>
       </div>
+
+      {openToWork.visible && (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.5 }}
+          className="mt-5 flex items-center justify-center"
+        >
+          <span className="relative inline-flex items-center gap-2 rounded-full border border-green-500/30 bg-green-500/10 px-4 py-1.5 text-sm font-medium text-green-400 dark:text-green-300">
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75"></span>
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500"></span>
+            </span>
+            {openToWork.text}
+          </span>
+        </motion.div>
+      )}
 
       <motion.h1
         className="mb-10 mt-4 px-4 text-2xl font-medium !leading-[1.5] sm:text-4xl"
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
       >
-        <span className="font-bold">Hello, I'm Hassan,</span> a{" "}
-        <span className="font-bold">full-stack developer</span> with{" "}
-        <span className="font-bold">5 years</span> of experience specializing
-        in. <span className="underline">Node, .Net and Next</span>
+        <span className="font-bold">Hello, I'm Hassan Faryad,</span> a{" "}
+        <span className="font-bold">Senior Software Engineer</span> with{" "}
+        <span className="font-bold">7+ years</span> of experience building{" "}
+        <span className="underline">AI-powered enterprise systems</span>.
       </motion.h1>
 
       <motion.div
@@ -85,7 +103,7 @@ export default function Intro() {
             setTimeOfLastClick(Date.now());
           }}
         >
-          Contact{" "}
+          Let's Talk{" "}
           <BsArrowRight className="opacity-70 group-hover:translate-x-1 transition" />
         </Link>
 

@@ -52,7 +52,11 @@ export const personalData = {
 };
 
 // Toggle the "Open to Work" banner in the hero here.
-export const openToWork = true;
+export const openToWork = {
+  visible: true,
+  text: "Open to Work",
+  emoji: "\u{1F7E2}",
+};
 
 export const statsData = [
   {
