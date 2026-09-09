@@ -11,6 +11,7 @@ export default function Project({
   title,
   description,
   tags,
+  category,
   imageUrl,
 }: ProjectProps) {
   const ref = useRef<HTMLDivElement>(null);
@@ -48,23 +49,29 @@ export default function Project({
           </ul>
         </div>
 
-        <Image
-          src={imageUrl}
-          alt="Project I worked on"
-          quality={95}
-          className="absolute hidden sm:block top-8 -right-40 w-[28.25rem] rounded-t-lg shadow-2xl
-        transition 
-        group-hover:scale-[1.04]
-        group-hover:-translate-x-3
-        group-hover:translate-y-3
-        group-hover:-rotate-2
+        {imageUrl ? (
+          <Image
+            src={imageUrl}
+            alt="Project I worked on"
+            quality={95}
+            className="absolute hidden sm:block top-8 -right-40 w-[28.25rem] rounded-t-lg shadow-2xl
+          transition 
+          group-hover:scale-[1.04]
+          group-hover:-translate-x-3
+          group-hover:translate-y-3
+          group-hover:-rotate-2
 
-        group-even:group-hover:translate-x-3
-        group-even:group-hover:translate-y-3
-        group-even:group-hover:rotate-2
+          group-even:group-hover:translate-x-3
+          group-even:group-hover:translate-y-3
+          group-even:group-hover:rotate-2
 
-        group-even:right-[initial] group-even:-left-40"
-        />
+          group-even:right-[initial] group-even:-left-40"
+          />
+        ) : (
+          <div className="absolute hidden sm:flex top-8 -right-40 w-[28.25rem] h-[15rem] items-center justify-center rounded-t-lg border border-slate-700 bg-gradient-to-br from-indigo-600/25 via-slate-800 to-slate-900 text-3xl font-bold text-indigo-300 group-even:right-[initial] group-even:-left-40">
+            {category}
+          </div>
+        )}
       </section>
     </motion.div>
   );
