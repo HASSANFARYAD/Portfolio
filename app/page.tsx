@@ -1,6 +1,9 @@
 import About from "@/components/about";
+import Blog from "@/components/blog";
 import Contact from "@/components/contact";
+import CurrentlyBuilding from "@/components/currently-building";
 import Experience from "@/components/experience";
+import GithubActivity from "@/components/github-activity";
 import Intro from "@/components/intro";
 import Projects from "@/components/projects";
 import SectionDivider from "@/components/section-divider";
@@ -13,10 +16,13 @@ export default function Home() {
       <Intro />
       <StatsBar />
       <SectionDivider />
+      <CurrentlyBuilding />
       <About />
       <Projects />
       <Skills />
       <Experience />
+      <Blog />
+      <GithubActivity />
       <Contact />
     </main>
   );

@@ -84,8 +84,12 @@ export const statsData = [
 export const githubData = {
   username: "HASSANFARYAD",
   url: "https://github.com/HASSANFARYAD",
+  profileUrl: "https://github.com/HASSANFARYAD",
   publicRepos: 26,
+  totalContributions: 487,
+  streak: { current: 14 },
   topLanguages: ["Python", "TypeScript", "C#"],
+  contributionBars: [2, 5, 0, 3, 7, 1, 4, 6, 0, 2, 5, 8, 3, 1],
 } as const;
 
 export const currentlyBuildingData = [
