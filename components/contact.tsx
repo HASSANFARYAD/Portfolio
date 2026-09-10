@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useRef, useTransition } from "react";
 import SectionHeading from "./section-heading";
 import { motion } from "framer-motion";
 import { useSectionInView } from "@/lib/hooks";
@@ -10,6 +10,25 @@ import toast from "react-hot-toast";
 
 export default function Contact() {
   const { ref } = useSectionInView("Contact");
+  const [pending, startTransition] = useTransition();
+  const formRef = useRef<HTMLFormElement>(null);
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+
+    startTransition(async () => {
+      const { data, error } = await sendEmail(formData);
+
+      if (error) {
+        toast.error(error);
+        return;
+      }
+
+      toast.success("Email sent successfully!");
+      formRef.current?.reset();
+    });
+  };
 
   return (
     <motion.section
@@ -33,24 +52,16 @@ export default function Contact() {
 
       <p className="text-gray-700 -mt-6 dark:text-white/80">
         Please contact me directly at{" "}
-        <a className="underline" href="mailto:example@gmail.com">
+        <a className="underline" href="mailto:muhammad.hassan93b@gmail.com">
           muhammad.hassan93b@gmail.com
         </a>{" "}
         or through this form.
       </p>
 
       <form
+        ref={formRef}
+        onSubmit={handleSubmit}
         className="mt-10 flex flex-col dark:text-black"
-        action={async (formData) => {
-          const { data, error } = await sendEmail(formData);
-
-          if (error) {
-            toast.error(error);
-            return;
-          }
-
-          toast.success("Email sent successfully!");
-        }}
       >
         <input
           className="h-14 px-4 rounded-lg borderBlack dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 transition-all dark:outline-none"
@@ -67,7 +78,7 @@ export default function Contact() {
           required
           maxLength={5000}
         />
-        <SubmitBtn />
+        <SubmitBtn pending={pending} />
       </form>
     </motion.section>
   );

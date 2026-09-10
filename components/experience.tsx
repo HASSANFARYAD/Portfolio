@@ -1,48 +1,39 @@
 "use client";
 
-import React from "react";
 import SectionHeading from "./section-heading";
 import {
   VerticalTimeline,
   VerticalTimelineElement,
 } from "react-vertical-timeline-component";
-import "react-vertical-timeline-component/style.min.css";
+import { useInView } from "react-intersection-observer";
 import { experiencesData } from "@/lib/data";
 import { useSectionInView } from "@/lib/hooks";
-import { useTheme } from "@/context/theme-context";
 
 export default function Experience() {
   const { ref } = useSectionInView("Experience");
-  const { theme } = useTheme();
+  // The timeline library gates each entry behind its own IntersectionObserver,
+  // registered through a callback ref on a class component. React's dev
+  // double-mount tears that observer down and the ref never fires again, so
+  // every entry stays at `visibility: hidden`. Drive the reveal ourselves and
+  // hand it to the library via `visible`.
+  const { ref: timelineRef, inView } = useInView({
+    triggerOnce: true,
+    rootMargin: "0px 0px -120px 0px",
+  });
 
   return (
     <section id="experience" ref={ref} className="scroll-mt-28 mb-28 sm:mb-40">
       <SectionHeading>My experience</SectionHeading>
-      <VerticalTimeline lineColor="">
-        {experiencesData.map((item, index) => (
-          <React.Fragment key={index}>
+      {/* Card, arrow and icon colours live in globals.css, keyed off the
+          `dark` class, so they don't flash before hydration. */}
+      <div ref={timelineRef}>
+        <VerticalTimeline lineColor="">
+          {experiencesData.map((item) => (
             <VerticalTimelineElement
-              contentStyle={{
-                background:
-                  theme === "light" ? "#f3f4f6" : "rgba(255, 255, 255, 0.05)",
-                boxShadow: "none",
-                border: "1px solid rgba(0, 0, 0, 0.05)",
-                textAlign: "left",
-                padding: "1.3rem 2rem",
-              }}
-              contentArrowStyle={{
-                borderRight:
-                  theme === "light"
-                    ? "0.4rem solid #9ca3af"
-                    : "0.4rem solid rgba(255, 255, 255, 0.5)",
-              }}
+              key={`${item.title}-${item.date}`}
+              visible={inView}
               date={item.date}
               icon={item.icon}
-              iconStyle={{
-                background:
-                  theme === "light" ? "white" : "rgba(255, 255, 255, 0.15)",
-                fontSize: "1.5rem",
-              }}
             >
               <h3 className="font-semibold capitalize">{item.title}</h3>
               <p className="font-normal !mt-0">{item.location}</p>
@@ -50,9 +41,9 @@ export default function Experience() {
                 {item.description}
               </p>
             </VerticalTimelineElement>
-          </React.Fragment>
-        ))}
-      </VerticalTimeline>
+          ))}
+        </VerticalTimeline>
+      </div>
     </section>
   );
 }

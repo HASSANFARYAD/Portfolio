@@ -3,9 +3,14 @@ import { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import type { SectionName } from "./types";
 
-export function useSectionInView(sectionName: SectionName, threshold = 0.75) {
+// A section becomes "active" once it crosses the middle of the viewport.
+// A visibility percentage can't work here: any section taller than the
+// viewport (Projects is ~4x) can never have 75% of itself on screen, so its
+// nav link would never light up.
+export function useSectionInView(sectionName: SectionName) {
   const { ref, inView } = useInView({
-    threshold,
+    rootMargin: "-45% 0px -45% 0px",
+    threshold: 0,
   });
   const { setActiveSection, timeOfLastClick } = useActiveSectionContext();
 
