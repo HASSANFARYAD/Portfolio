@@ -9,6 +9,10 @@ export const validateString = (
   return true;
 };
 
+// Length alone said nothing about whether Resend could use this as a reply-to.
+export const validateEmail = (value: unknown): value is string =>
+  validateString(value, 320) && /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value);
+
 export const getErrorMessage = (error: unknown): string => {
   let message: string;
 

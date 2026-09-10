@@ -40,6 +40,6 @@ next-env.d.ts
 # local prompt/plan files (not for the repo)
 hassan-portfolio-update-prompt.md
 
-# local logs
-/build.log
-/dev.log
+# local logs and screenshots
+*.log
+/*.png

@@ -58,15 +58,31 @@ export const openToWork = {
   emoji: "\u{1F7E2}",
 };
 
+// Hand-maintained snapshot -- nothing fetches these, so they drift silently.
+// Re-check against the GitHub profile when you touch this file.
+export const githubData = {
+  username: "HASSANFARYAD",
+  url: "https://github.com/HASSANFARYAD",
+  profileUrl: "https://github.com/HASSANFARYAD",
+  publicRepos: 26,
+  totalContributions: 487,
+  streak: { current: 14 },
+  topLanguages: ["Python", "TypeScript", "C#"],
+  contributionBars: [2, 5, 0, 3, 7, 1, 4, 6, 0, 2, 5, 8, 3, 1],
+  lastVerified: "2026-09-10",
+} as const;
+
+// Derived from the values above wherever the number already lives somewhere,
+// so the hero stats can't disagree with the rest of the page.
 export const statsData = [
   {
     label: "Years of Experience",
-    value: 7,
+    value: personalData.yearsOfExperience,
     suffix: "+",
   },
   {
     label: "GitHub Repos",
-    value: 26,
+    value: githubData.publicRepos,
     suffix: "",
   },
   {
@@ -80,17 +96,6 @@ export const statsData = [
     suffix: "",
   },
 ] as const;
-
-export const githubData = {
-  username: "HASSANFARYAD",
-  url: "https://github.com/HASSANFARYAD",
-  profileUrl: "https://github.com/HASSANFARYAD",
-  publicRepos: 26,
-  totalContributions: 487,
-  streak: { current: 14 },
-  topLanguages: ["Python", "TypeScript", "C#"],
-  contributionBars: [2, 5, 0, 3, 7, 1, 4, 6, 0, 2, 5, 8, 3, 1],
-} as const;
 
 export const currentlyBuildingData = [
   {
@@ -207,8 +212,8 @@ export const projectsData = [
   {
     title: "metadata-guardian",
     description:
-      "An AI-powered autonomous metadata maintenance agent for DataHub. Watches GitHub for schema changes, detects stale metadata via LLMs, and writes corrections back to DataHub automatically.",
-    tags: ["Python", "LLM", "DataHub", "GitHub Actions", "Autonomous Agent", "Metadata"],
+      "AI agent that monitors GitHub for schema changes, detects stale DataHub metadata, and automatically updates it with accurate information.",
+    tags: ["DataHub", "GitHub Actions", "Autonomous Agent"],
     category: "AI/Python" as ProjectCategory,
     imageUrl: null,
     githubUrl: "https://github.com/HASSANFARYAD/metadata-guardian",
@@ -217,7 +222,7 @@ export const projectsData = [
     title: "fiverr-copilot",
     description:
       "Optimizes Fiverr gigs, classifies buyer messages, drafts replies, and tracks 24-hour response deadlines. Full-stack: Next.js + FastAPI + cross-browser extension.",
-    tags: ["TypeScript", "Next.js", "FastAPI", "Browser Extension", "AI Classification", "NLP"],
+    tags: ["Browser Extension", "AI Classification", "NLP"],
     category: "AI/Python" as ProjectCategory,
     imageUrl: null,
     githubUrl: "https://github.com/HASSANFARYAD/fiverr-copilot",
@@ -225,8 +230,8 @@ export const projectsData = [
   {
     title: "ChronoGraph",
     description:
-      "A temporal knowledge-graph reasoning engine for root-cause analysis. Features time-aware causal traversal, weighted path scoring, explainable evidence chains, and a React replay UI.",
-    tags: ["Python", "Knowledge Graph", "React", "Reasoning Engine", "Causal AI", "Root-Cause Analysis"],
+      "Temporal knowledge graph for root-cause analysis with causal paths, evidence scoring, and a React replay UI.",
+    tags: ["Knowledge Graph", "Reasoning Engine", "Root-Cause Analysis"],
     category: "AI/Python" as ProjectCategory,
     imageUrl: null,
     githubUrl: "https://github.com/HASSANFARYAD/ChronoGraph",

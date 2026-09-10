@@ -9,7 +9,7 @@ import { FaExternalLinkAlt } from "react-icons/fa";
 import Link from "next/link";
 
 export default function GithubActivity() {
-  const { ref } = useSectionInView("GithubActivity", 0.2);
+  const { ref } = useSectionInView("GithubActivity");
 
   return (
     <section

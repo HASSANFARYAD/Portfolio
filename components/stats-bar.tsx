@@ -40,7 +40,7 @@ export default function StatsBar() {
   return (
     <section
       ref={ref}
-      className="mb-16 grid grid-cols-2 gap-6 sm:grid-cols-4 max-w-[40rem] mx-auto"
+      className="mt-12 mb-12 grid grid-cols-2 gap-6 sm:grid-cols-4 max-w-[40rem] mx-auto"
     >
       {statsData.map((stat) => (
         <StatItem key={stat.label} stat={stat} inView={inView} />

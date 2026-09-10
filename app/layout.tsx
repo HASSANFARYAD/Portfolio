@@ -1,4 +1,6 @@
 import Header from "@/components/header";
+// Vendor stylesheet first: globals.css themes the timeline and needs to win.
+import "react-vertical-timeline-component/style.min.css";
 import "./globals.css";
 import { Inter } from "next/font/google";
 import ActiveSectionContextProvider from "@/context/active-section-context";

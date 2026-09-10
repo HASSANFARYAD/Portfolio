@@ -17,3 +17,37 @@ html.dark body {
 .borderBlack {
   @apply border border-black/10;
 }
+
+/* Experience timeline. These were inline styles driven by the theme context,
+   which meant a light-mode visitor saw dark cards until React hydrated.
+   Driving them from the `dark` class (set by the blocking script in <head>)
+   removes that flash. !important mirrors the old inline-style precedence --
+   the library's own rules are more specific at >=1170px. */
+.vertical-timeline-element-content {
+  background: #f3f4f6 !important;
+  box-shadow: none !important;
+  border: 1px solid rgba(0, 0, 0, 0.05) !important;
+  text-align: left !important;
+  padding: 1.3rem 2rem !important;
+}
+
+html.dark .vertical-timeline-element-content {
+  background: rgba(255, 255, 255, 0.05) !important;
+}
+
+.vertical-timeline-element-content-arrow {
+  border-right-color: #9ca3af !important;
+}
+
+html.dark .vertical-timeline-element-content-arrow {
+  border-right-color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.vertical-timeline-element-icon {
+  background: #fff !important;
+  font-size: 1.5rem !important;
+}
+
+html.dark .vertical-timeline-element-icon {
+  background: rgba(255, 255, 255, 0.15) !important;
+}

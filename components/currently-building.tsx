@@ -9,7 +9,7 @@ import { FaGithub } from "react-icons/fa";
 import Link from "next/link";
 
 export default function CurrentlyBuilding() {
-  const { ref } = useSectionInView("CurrentlyBuilding", 0.2);
+  const { ref } = useSectionInView("CurrentlyBuilding");
 
   return (
     <section

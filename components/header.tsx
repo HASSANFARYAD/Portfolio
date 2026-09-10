@@ -18,7 +18,7 @@ export default function Header() {
   return (
     <header className="z-[999] relative">
       <motion.div
-        className="fixed top-0 left-1/2 h-[4.5rem] w-full rounded-none border border-white border-opacity-40 bg-white bg-opacity-80 shadow-lg shadow-black/[0.03] backdrop-blur-[0.5rem] sm:top-6 sm:h-[3.25rem] sm:w-[42rem] sm:rounded-full dark:bg-gray-950 dark:border-black/40 dark:bg-opacity-75"
+        className="fixed top-0 left-1/2 h-[4.5rem] w-full rounded-none border border-white border-opacity-40 bg-white bg-opacity-80 shadow-lg shadow-black/[0.03] backdrop-blur-[0.5rem] sm:top-6 sm:h-[3.25rem] sm:w-[50rem] sm:rounded-full dark:bg-gray-950 dark:border-black/40 dark:bg-opacity-75"
         initial={{ y: -100, x: "-50%", opacity: 0 }}
         animate={{ y: 0, x: "-50%", opacity: 1 }}
       />
@@ -74,23 +74,25 @@ export default function Header() {
         </ul>
 
         {/* Mobile hamburger + theme toggle */}
-        <div className="flex sm:hidden items-center justify-between w-[22rem] px-4">
+        <div className="flex sm:hidden items-center justify-between w-screen px-6">
           <button
             onClick={toggleTheme}
             className="flex items-center justify-center w-9 h-9 rounded-full hover:bg-gray-200/60 dark:hover:bg-gray-700/60 transition"
             aria-label="Toggle theme"
           >
-            {theme === "light" ? <BsMoon /> : <BsSun />}
+            {theme === "light" ? <BsMoon className="text-[1.4rem]"/> : <BsSun className="text-[1.4rem]"/>}
           </button>
+          {/* Hamburger */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
             className="flex items-center justify-center w-9 h-9 rounded-full hover:bg-gray-200/60 dark:hover:bg-gray-700/60 transition"
             aria-label="Toggle menu"
           >
-            {mobileOpen ? <BsX className="text-xl" /> : <BsList className="text-xl" />}
+            {mobileOpen ? <BsX className="text-xl text-[1.7rem]" /> : <BsList className="text-xl text-[1.7rem]" />}
           </button>
         </div>
       </nav>
+
 
       {/* Mobile dropdown menu */}
       <AnimatePresence>
@@ -100,16 +102,17 @@ export default function Header() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="fixed top-[4.5rem] left-1/2 -translate-x-1/2 w-[20rem] rounded-xl border border-white/20 bg-white/90 shadow-xl backdrop-blur-md dark:bg-gray-950/90 dark:border-black/40 sm:hidden z-[999]"
+            className="fixed top-[4.5rem] left-0 w-full border-t border-gray-200/70 bg-white/95 shadow-lg backdrop-blur-md dark:border-gray-800/70 dark:bg-gray-950/95 sm:hidden z-[998]"
           >
-            <ul className="flex flex-col py-3">
+            <ul className="flex w-full flex-col py-2">
               {links.map((link) => (
-                <li key={link.hash}>
+                <li key={link.hash} className="w-full">
                   <Link
                     className={clsx(
-                      "block px-6 py-2.5 text-sm font-medium transition hover:bg-gray-100 dark:hover:bg-gray-800",
+                      "block w-full px-6 py-3.5 text-sm font-medium transition",
+                      "hover:bg-gray-100 dark:hover:bg-gray-800",
                       {
-                        "text-gray-950 dark:text-gray-200 bg-gray-100/60 dark:bg-gray-800/60":
+                        "bg-gray-100/70 text-gray-950 dark:bg-gray-800/70 dark:text-gray-200":
                           activeSection === link.name,
                       }
                     )}

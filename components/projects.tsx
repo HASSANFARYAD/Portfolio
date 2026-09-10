@@ -11,7 +11,7 @@ import clsx from "clsx";
 type Filter = (typeof projectCategories)[number];
 
 export default function Projects() {
-  const { ref } = useSectionInView("Projects", 0.5);
+  const { ref } = useSectionInView("Projects");
   const [filter, setFilter] = useState<Filter>("All");
 
   const filteredProjects =
@@ -44,6 +44,7 @@ export default function Projects() {
         <AnimatePresence initial={false}>
           {filteredProjects.map((project) => (
             <motion.div
+              className="mb-3 last:mb-0"
               key={project.title}
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}

@@ -1,6 +1,13 @@
 "use client";
 
-import React, { useEffect, useState, createContext, useContext } from "react";
+import React, {
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useState,
+  createContext,
+  useContext,
+} from "react";
 
 type Theme = "light" | "dark";
 
@@ -15,38 +22,43 @@ type ThemeContextType = {
 
 const ThemeContext = createContext<ThemeContextType | null>(null);
 
+// The stored theme is read here as well as by the blocking script in the
+// document head. The script wins the race for CSS (it sets the `dark` class
+// before first paint); this runs as a layout effect so the components that
+// style themselves from `theme` in JS are corrected before paint too, rather
+// than flashing dark for a frame.
+const useIsomorphicLayoutEffect =
+  typeof window === "undefined" ? useEffect : useLayoutEffect;
+
+function applyTheme(theme: Theme) {
+  document.documentElement.classList.toggle("dark", theme === "dark");
+}
+
 export default function ThemeContextProvider({
   children,
 }: ThemeContextProviderProps) {
+  // Dark-first: this matches both the server render and the head script's
+  // default, so there is nothing for hydration to reconcile.
   const [theme, setTheme] = useState<Theme>("dark");
 
-  const toggleTheme = () => {
-    if (theme === "light") {
-      setTheme("dark");
-      window.localStorage.setItem("theme", "dark");
-      document.documentElement.classList.add("dark");
-    } else {
-      setTheme("light");
-      window.localStorage.setItem("theme", "light");
-      document.documentElement.classList.remove("dark");
+  useIsomorphicLayoutEffect(() => {
+    const storedTheme = window.localStorage.getItem("theme") as Theme | null;
+
+    if (storedTheme === "light" || storedTheme === "dark") {
+      setTheme(storedTheme);
+      applyTheme(storedTheme);
     }
-  };
+  }, []);
 
-  useEffect(() => {
-    const localTheme = window.localStorage.getItem("theme") as Theme | null;
+  const toggleTheme = useCallback(() => {
+    setTheme((current) => {
+      const next: Theme = current === "light" ? "dark" : "light";
 
-    if (localTheme) {
-      setTheme(localTheme);
+      window.localStorage.setItem("theme", next);
+      applyTheme(next);
 
-      if (localTheme === "dark") {
-        document.documentElement.classList.add("dark");
-      } else {
-        document.documentElement.classList.remove("dark");
-      }
-    } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      setTheme("dark");
-      document.documentElement.classList.add("dark");
-    }
+      return next;
+    });
   }, []);
 
   return (

@@ -29,7 +29,7 @@ const writingPosts = [
 ];
 
 export default function Blog() {
-  const { ref } = useSectionInView("Writing", 0.2);
+  const { ref } = useSectionInView("Writing");
 
   return (
     <section
