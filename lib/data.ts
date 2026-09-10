@@ -99,13 +99,13 @@ export const statsData = [
 
 export const currentlyBuildingData = [
   {
-    name: "metadata-guardian",
+    name: "Metadata Guardian",
     description: "AI Metadata Agent",
     language: "Python",
     url: "https://github.com/HASSANFARYAD/metadata-guardian",
   },
   {
-    name: "fiverr-copilot",
+    name: "Fiverr Copilot",
     description: "AI Gig Optimizer",
     language: "TypeScript",
     url: "https://github.com/HASSANFARYAD/fiverr-copilot",
